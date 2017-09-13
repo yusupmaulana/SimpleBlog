@@ -5,6 +5,10 @@ function tampilkan(){
   return tampil_data($query);
 }
 
+function tampilkan_per_id($id){
+  $query = "SELECT * FROM blog WHERE id=$id";
+  return tampil_data($query);
+}
 
 //fungsi untuk menjalankan query dari menampilkan data dan hasil_cari
 function tampil_data($query){
@@ -22,6 +26,16 @@ function tambah_data($judul, $isi, $tag){
   $tag   = escape($tag);
 
   $query = "INSERT INTO blog (judul, isi, tag) VALUES ('$judul','$isi','$tag')";
+  return run($query);
+}
+
+//utk mengedit artikel
+function edit_data($judul, $isi, $tag, $id){
+  $judul = escape($judul);
+  $isi   = escape($isi);
+  $tag   = escape($tag);
+
+  $query = "UPDATE blog SET judul='$judul', isi='$isi', tag='$tag' WHERE id=$id";
   return run($query);
 }
 

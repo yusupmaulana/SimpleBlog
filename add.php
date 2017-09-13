@@ -22,7 +22,7 @@ if( isset($_POST['submit']) ){
 }
 
 ?>
-<div class="container" id="formCust">
+<div class="container formCust">
   <form action="" method="post">
 
     <div class="form-group">

@@ -39,6 +39,7 @@ $articles = tampilkan();
               <h2 class="post-title"><?=$row['judul'];?></h2>
             </a>
             <p><?=$row['isi'];?></p>
+            <a href="edit.php?id=<?=$row['id'];?>" class="btn btn-warning">Edit</a>
             <p class="post-meta">Diposting: <?=$row['waktu'];?></p>
             <p class="post-meta">Tag: <?=$row['tag'];?></p>
           </div>
