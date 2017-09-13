@@ -40,6 +40,7 @@ $articles = tampilkan();
             </a>
             <p><?=excerpt($row['isi']);?></p>
             <a href="edit.php?id=<?=$row['id'];?>" class="btn btn-warning">Edit</a>
+            <a href="delete.php?id=<?=$row['id'];?>" class="btn btn-danger">Delete</a>
             <p class="post-meta">Diposting: <?=$row['waktu'];?></p>
             <p class="post-meta">Tag: <?=$row['tag'];?></p>
           </div>
