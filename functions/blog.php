@@ -52,4 +52,10 @@ function escape($data){
   global $link;
   return mysqli_real_escape_string($link, $data);
 }
+
+//untuk memotong string sehingga tdk ditampilkan semua isinya.
+function excerpt($string){
+  $string = substr($string, 0, 20);
+  return $string . "...";
+}
 ?>
