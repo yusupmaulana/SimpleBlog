@@ -5,6 +5,10 @@ require_once "view/header.php";
 $articles = tampilkan();
 // die(print_r($articles));
 
+if( isset($_GET['cari']) ){
+  $cari     = $_GET['cari'];
+  $articles = hasil_cari($cari);
+}
 ?>
     <!-- Page Header -->
     <header class="masthead" style="background-image: url('asset/img/home-bg.jpg')">
@@ -30,6 +34,17 @@ $articles = tampilkan();
             Tulis Artikel</a>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form action="" method="get">
+            <div class="form-group">
+              <input type="text" name="cari" class="form-control" placeholder="cari disini..">
+            </div>
+          </form>
+        </div>
+      </div>
+
 
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">

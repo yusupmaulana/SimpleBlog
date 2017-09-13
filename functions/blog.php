@@ -5,8 +5,15 @@ function tampilkan(){
   return tampil_data($query);
 }
 
+//utk menampilkan data berdasarkan id
 function tampilkan_per_id($id){
   $query = "SELECT * FROM blog WHERE id=$id";
+  return tampil_data($query);
+}
+
+//utk mencari artikel
+function hasil_cari($cari){
+  $query  = "SELECT * FROM blog WHERE judul LIKE '%$cari%'";
   return tampil_data($query);
 }
 
