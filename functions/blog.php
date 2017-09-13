@@ -1,7 +1,7 @@
 <?php
 //untuk menampilkan data
 function tampilkan(){
-  $query = "SELECT * FROM blog";
+  $query = "SELECT * FROM blog ORDER BY id DESC";
   return tampil_data($query);
 }
 
@@ -15,7 +15,27 @@ function tampil_data($query){
   }
 }
 
+//utk menambah artikel ke dalam database
+function tambah_data($judul, $isi, $tag){
+  $judul = escape($judul);
+  $isi   = escape($isi);
+  $tag   = escape($tag);
 
+  $query = "INSERT INTO blog (judul, isi, tag) VALUES ('$judul','$isi','$tag')";
+  return run($query);
+}
 
+//utk menjalankan query
+function run($query){
+  global $link;
 
+  if (mysqli_query($link, $query)) return true;
+    else return false;
+}
+
+//utk mencegah sql injection
+function escape($data){
+  global $link;
+  return mysqli_real_escape_string($link, $data);
+}
 ?>

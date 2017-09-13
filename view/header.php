@@ -20,6 +20,7 @@
 
     <!-- Custom styles for this template -->
     <link href="asset/css/clean-blog.min.css" rel="stylesheet">
+    <link href="view/style.css" rel="stylesheet">
 
   </head>
 

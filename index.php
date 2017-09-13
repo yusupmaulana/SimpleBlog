@@ -22,6 +22,15 @@ $articles = tampilkan();
 
     <!-- Main Content -->
     <div class="container">
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <a href="add.php" class="btn btn-primary btn-md">
+            <i class="fa fa-pencil-square-o fa-2x"></i>
+            Tulis Artikel</a>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <?php while($row = mysqli_fetch_assoc($articles)): ?>
