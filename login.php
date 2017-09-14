@@ -3,6 +3,10 @@ require_once "core/init.php";
 
 $error ='';
 
+//redirect kalau user sudah login
+if(isset($_SESSION['user'])) {
+  header('Location: index.php');
+}
 
 //validasi register
 if (isset($_POST['submit'])) {
