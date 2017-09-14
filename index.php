@@ -2,9 +2,13 @@
 require_once "core/init.php";
 require_once "view/header.php";
 
-$login = false;
+$super_user = $login = false;
+
 if ( isset($_SESSION['user']) ) {
   $login = true;
+  if ( cek_status($_SESSION['user']) == 1) {
+    $super_user = true;
+  }
 }
 
 
@@ -67,7 +71,9 @@ if( isset($_GET['cari']) ){
             <p><?=excerpt($row['isi']);?></p>
             <?php if($login == true){ ?>
               <a href="edit.php?id=<?=$row['id'];?>" class="btn btn-warning">Edit</a>
-              <a href="delete.php?id=<?=$row['id'];?>" class="btn btn-danger">Delete</a>
+              <?php if($super_user == true){ ?>
+                <a href="delete.php?id=<?=$row['id'];?>" class="btn btn-danger">Delete</a>
+              <?php } ?>
             <?php } ?>
             <p class="post-meta">Diposting: <?=$row['waktu'];?></p>
             <p class="post-meta">Tag: <?=$row['tag'];?></p>

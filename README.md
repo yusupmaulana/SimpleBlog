@@ -1,6 +1,7 @@
 # SimpleBlog
 
 Blog sederhana dengan sistem CRUD menggunakan PHP dan Mysqli secara procedural.
+Terdapat sistem login dan register (multilevel user).
 Template menggunakan Clean Blog dari https://startbootstrap.com
 
 Cara Install :

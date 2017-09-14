@@ -52,4 +52,20 @@ function redirect_login($nama){
   $_SESSION['user'] = $nama;
   header('Location: index.php');
 }
+
+//fungsi utk mengecek status user 0 atau 1
+function cek_status($username){
+  global $link;
+  $nama = escape($username);
+
+  $query = "SELECT status FROM users WHERE username='$nama'";
+
+  if ($result = mysqli_query($link, $query)) {
+    while($row = mysqli_fetch_assoc($result)){
+      $status = $row['status'];
+    }
+    return $status;
+  }
+
+}
 ?>
