@@ -2,6 +2,16 @@
 require_once "core/init.php";
 require_once "view/header.php";
 
+$login = false;
+if ( isset($_SESSION['user']) ) {
+  $login = true;
+}
+
+
+
+
+
+
 $articles = tampilkan();
 // die(print_r($articles));
 
@@ -26,7 +36,7 @@ if( isset($_GET['cari']) ){
 
     <!-- Main Content -->
     <div class="container">
-
+    <?php if($login == true){ ?>
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <a href="add.php" class="btn btn-primary btn-md">
@@ -34,6 +44,7 @@ if( isset($_GET['cari']) ){
             Tulis Artikel</a>
         </div>
       </div>
+    <?php } ?>
 
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -54,8 +65,10 @@ if( isset($_GET['cari']) ){
               <h2 class="post-title"><?=$row['judul'];?></h2>
             </a>
             <p><?=excerpt($row['isi']);?></p>
-            <a href="edit.php?id=<?=$row['id'];?>" class="btn btn-warning">Edit</a>
-            <a href="delete.php?id=<?=$row['id'];?>" class="btn btn-danger">Delete</a>
+            <?php if($login == true){ ?>
+              <a href="edit.php?id=<?=$row['id'];?>" class="btn btn-warning">Edit</a>
+              <a href="delete.php?id=<?=$row['id'];?>" class="btn btn-danger">Delete</a>
+            <?php } ?>
             <p class="post-meta">Diposting: <?=$row['waktu'];?></p>
             <p class="post-meta">Tag: <?=$row['tag'];?></p>
           </div>

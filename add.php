@@ -4,6 +4,11 @@ require_once "view/header.php";
 
 $error="";
 
+//redirect kalau user belum login
+if(!isset($_SESSION['user'])) {
+  header('Location: login.php');
+}
+
 if( isset($_POST['submit']) ){
   $judul = $_POST['judul'];
   $isi   = $_POST['isi'];

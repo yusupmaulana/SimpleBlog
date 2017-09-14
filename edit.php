@@ -3,6 +3,11 @@ require_once "core/init.php";
 require_once "view/header.php";
 
 $error="";
+//redirect kalau user belum login
+if(!isset($_SESSION['user'])) {
+  header('Location: login.php');
+}
+
 $id = $_GET['id'];
 
 
