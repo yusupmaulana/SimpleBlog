@@ -40,6 +40,11 @@ require_once "view/header.php";
  </header>
 
 <div class="container formCust">
+    <?php if($error !=''){ ?>
+      <div id="error">
+        <?= $error; ?>
+      </div>
+    <?php } ?>
     <form action="" method="post">
 
       <div class="form-group">
@@ -52,17 +57,9 @@ require_once "view/header.php";
         <input type="password" name="password" class="form-control">
       </div>
 
-      <?php if($error !=''){ ?>
-        <div id="error">
-          <?= $error; ?>
-        </div>
-      <?php } ?>
-
       <input type="submit" name="submit" class="btn btn-default" value="daftar">
 
     </form>
-
 </div>
-
 
 <?php require_once "view/footer.php" ?>

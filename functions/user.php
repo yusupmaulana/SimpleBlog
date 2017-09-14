@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function register_user($nama, $pass){
   # keyword global akan membuat variabel $link bisa diakses dari mana saja. ex: $_POST, $_SERVER etc.
@@ -32,5 +32,24 @@ function cek_nama($nama){
   if ( $result = mysqli_query($link, $query) ) return mysqli_num_rows($result);
 }
 
+//untuk login
+function cek_data($nama, $pass){
+  global $link;
 
+  #mysqli_real_escape_string untuk mencegah sql injection
+  $nama = escape($nama);
+  $pass = escape($pass);
+
+  $query  = "SELECT password FROM users WHERE username='$nama'";
+  $result = mysqli_query($link, $query);
+  $hash = mysqli_fetch_assoc($result)['password'];
+
+  if ( password_verify($pass, $hash) ) return true;
+  else return false;
+}
+
+function redirect_login($nama){
+  $_SESSION['user'] = $nama;
+  header('Location: index.php');
+}
 ?>

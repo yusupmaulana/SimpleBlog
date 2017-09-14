@@ -22,7 +22,22 @@ if( isset($_POST['submit']) ){
 }
 
 ?>
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('asset/img/post-sample-image.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Tambah Artikel</h1>
+          <span class="subheading">Buat impact dengan tulisanmu!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 <div class="container formCust">
+  <div id="error"><?=$error ?></div><br>
   <form action="" method="post">
 
     <div class="form-group">
@@ -39,7 +54,6 @@ if( isset($_POST['submit']) ){
       <input type="text" name="tag" class="form-control"><br>
     </div>
 
-    <div id="error"><?=$error ?></div><br>
 
     <input type="submit" name="submit" class="btn btn-default" value="submit">
   </form>
